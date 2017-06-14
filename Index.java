@@ -134,31 +134,6 @@ public class Index {
 							termDict.put(token, wordIdCounter++);
 						}
 						System.out.println("token: " + token + " key: " + termDict.get(token));
-
-
-
-/*for (String token : tokens) 
-	{
-		if (!termDict.containsKey(token))//checking if current string token is not in termDict
-		{
-			termDict.put(token, wordIdCounter);//places current string token on termDict with unique term-ID										PostingList post = new PostingList(wordIdCounter);//instantiates new posting list object for that term
-			post.getList().add(docIdCounter);//adds the currently read document to the posting list
-			plDict.put(wordIdCounter, post);//adds the key: term ID and value: posting list for term to postingListDictionary
-			System.out.println("Creating new term ID ( " + wordIdCounter + " ) for: " + token + " in document: " +docIdCounter);.//test
-			wordIdCounter++;//increments word counter
-		}
-		else
-		{
-			System.out.println("term ID already exists for : "  + token + " ( " + termDict.get(token) + " ) from document " + docIdCounter);//test
-			//check for repeated terms in same document
-			if(!plDict.get(termDict.get(token)).getList().contains(docIdCounter))
-			{
-				plDict.get(termDict.get(token)).getList().add(docIdCounter);//adds current document-ID to posting list dictionary posting list based off existing term-ID
-			}
-		}
-						
-	}*/
-
 						ArrayList<Integer> array_list = new ArrayList<Integer>();
 						PostingList new_postingList = new PostingList(wordIdCounter, array_list);
 						if(!map_of_postingList.containsKey(wordIdCounter)) {
