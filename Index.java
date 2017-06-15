@@ -134,23 +134,23 @@ public class Index {
 							termDict.put(token, wordIdCounter++);
 						}
 						System.out.println("token: " + token + " key: " + termDict.get(token));
-						ArrayList<Integer> array_list = new ArrayList<Integer>();
-						PostingList new_postingList = new PostingList(wordIdCounter, array_list);
 						if(!map_of_postingList.containsKey(wordIdCounter)) {
+							ArrayList<Integer> array_list = new ArrayList<Integer>();
 							array_list.add(docDict.get(fileName));
-							System.out.println("arraylist: " + array_list.get(0));
-							System.out.println("\n");
+							PostingList new_postingList = new PostingList(wordIdCounter, array_list);
 							map_of_postingList.put(wordIdCounter, new_postingList);
 
 						} 
 						else {
-							new_postingList.getList().add(docDict.get(fileName));
+							if(docDict.get(fileName) != map_of_postingList.get(wordIdCounter).getList().get(map_of_postingList.get(wordIdCounter).getList().size()-1)) {
+								map_of_postingList.get(wordIdCounter).getList().add(docDict.get(fileName));
+							}
 
 						}
-
-						//System.out.println("Processing token " + token + " for file " + fileName);*/
+						System.out.println("Processing token " + token + " for file " + fileName);
 					}
 				}
+				
 				reader.close();
 			}
 
